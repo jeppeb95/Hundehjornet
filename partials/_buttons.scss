@@ -1,0 +1,19 @@
+/* Global button styling */
+.global-button {
+    width: 160px;
+    text-decoration: none;
+    color: $hvid;
+    border: 1px solid $hvid;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    @include flex-center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+
+    &:hover {
+        background-color: $hvid;
+        color: $blaa;
+      }
+}

@@ -1,0 +1,525 @@
+@import 'partials/mixin';
+@import 'partials/colors';
+@import 'partials/fonts';
+@import 'partials/buttons';
+@import 'partials/padding';
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $brodtekst;
+}
+
+// Styling af header //
+
+header {
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $hvid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    .navbar {
+        ul {
+            display: flex;
+            gap: 35px;
+            list-style-type: none;
+            padding-right: 50px;
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-family: $brodtekst;
+                font-weight: 600;
+                font-size: 18px;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 2px;
+                    background: #000;
+                    transition: width .3s;
+                    margin-top: 2px;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .logo {
+        height: 90%;
+    }
+
+   img {
+    height: 100%;
+    padding-left: 20px;
+   }
+
+   .logo-mobil {
+    img {
+        display: none;
+    }
+   }
+}
+
+// Header mobil //
+@media only screen and (max-width: 970px) {
+    header {
+        position: fixed;
+        z-index: 99;
+        width: 100vw;
+        justify-content: center;
+
+        .navbar {
+            display: none;
+        }
+
+        .logo {
+            img {
+                display: none;
+            }
+        }
+
+        .logo-mobil {
+            @include flex-center;
+            img {
+                display: flex;
+                width: 65%;
+                padding: 0;
+            }
+        }
+    }
+
+    main {
+        padding-top: 85px;
+    }
+}
+
+// Mobil navigation //
+.mobile-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $blaa;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    @include flex-center;
+    flex-direction: column;
+    img {
+        width: 45px;
+    }
+
+    ul {
+    padding: 0;
+        li {
+            list-style-type: none;
+            padding-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+    
+            a {
+                text-decoration: none;
+                color: $hvid;
+            }
+        }
+    }
+  
+}
+
+#menu-toggle{
+    display: none;
+}
+
+.hamburger-menu {
+    z-index: 9999999;
+    position: fixed;
+    padding-left: 10px;
+
+    span {
+        display: block;
+        width: 30px; 
+        height: 3px; 
+        background-color: black;
+        margin: 6px; 
+        transition: transform 0.3s ease;
+
+
+    }
+}
+
+#menu-toggle:checked + .hamburger-menu span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+#menu-toggle:checked + .hamburger-menu span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger-menu span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px); 
+}
+
+#menu-toggle:checked + .hamburger-menu + .mobile-navbar {
+    transform: translateX(0%);
+}
+
+
+// Styling af hero //
+.hero-section {
+    display: flex;
+
+    .hero-text-container {
+        width: 50vw;
+        background: $blaa;
+        @include flex-center;
+        flex-direction: column;
+
+        .hero-overskrift {
+            width: 70%;
+
+            p {
+                padding: 10px 0;
+            }
+
+            h1 {
+                padding-bottom: 5px;
+            }
+        }
+    }
+    
+
+    .hero-img-container {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        .hunde-par {
+            display: flex;
+        
+
+            img {
+                width: 25vw;
+                object-fit: cover;
+    
+            }
+
+             &:nth-child(2) { 
+                margin-top: -2px; 
+        }
+        }
+
+        .hjerte-cirkel {
+            position: absolute;
+            background: $blaa;
+            border-radius: 50%;
+            width: 10vw;
+            height: 10vw;
+            @include flex-center;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            img {
+                width: 70%;
+            }
+        }
+    }
+}
+
+.hero-seperator {
+    width: 60%;
+    height: 7px;
+    background:  $hvid;
+}
+
+// Styling af hero mobil //
+@media only screen and (max-width: 900px)  {
+    .hero-section {
+        flex-direction: column;
+
+        .hero-img-container {
+            width: 100vw;
+
+            .hunde-par img {
+                width: 50vw;
+            }
+
+            .hjerte-cirkel {
+                width: 25vw;
+                height: 25vw;
+            }
+        }
+
+        .hero-text-container {
+            width: 100vw;
+            padding: 30px 0;
+            text-align: center;
+
+            .hero-overskrift {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+      
+        }
+    }
+}
+
+//Styling af info-section//
+.info-section {
+    background: $lyseblaa;
+    @include flex-center;
+    flex-direction: column;
+    padding: $standard;
+
+    h1 {
+        color: black;
+    }
+
+    p {
+        color: black;
+        width: 60%;
+        text-align: center;
+        padding-bottom: 25px;
+    }
+
+    .global-button {
+        color: black;
+        border: 1px solid black;
+
+        &:hover {
+            background: black;
+            color: $lyseblaa;
+        }
+    }
+}
+
+//Styling af mobil info-section//
+@media only screen and (max-width: 950px) {
+    .info-section {
+        p {
+            width: 90%;
+        }
+    }
+}
+
+
+// Styling af navigation section //
+.navigation-section {
+    @include flex-center;
+    padding: $standard;
+    flex-direction: column;
+
+    a {
+        text-decoration: none;
+    }
+
+    h1 {
+        color: black;
+    }
+
+    .navigation-box {
+        width: 25vw;
+        background: $blaa;
+        color:  $hvid;
+        transition: filter 0.3s ease; 
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            transition: filter 0.3s ease; 
+
+        }
+
+        h2 {
+            padding-bottom: 25px;
+        }
+
+        &:hover img {
+            filter: brightness(0.4);
+        }
+    }
+
+    .navigation-wrapper {
+        display: flex;
+        gap: 15px;
+        padding-top: 20px;
+
+    }
+}
+
+//Mobilstyling af navigation-section//
+@media only screen and (max-width: 950px) {
+    .navigation-section {
+        .navigation-wrapper {
+            flex-direction: column;
+
+            .navigation-box {
+                width: 60vw;
+
+                h2 {
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navigation-section {
+        .navigation-wrapper {
+            .navigation-box {
+                width: 80vw;
+            }
+        }
+    }
+}
+
+
+//Styling af donation section //
+.donation-section {
+    padding: $standard;
+    background-image: url(img/hundbg.png);
+    background-position: center right/cover; 
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    height: 40vh;
+
+    .donation-content {
+        width: 30vw;
+        padding-left: 150px;
+    }
+
+    .global-button {
+        background: $blaa;
+        border: none;
+
+        &:hover {
+            background: $hvid;
+
+        }
+    }
+
+    h1 {
+        white-space: nowrap;
+    }
+}
+
+// Mobile donation section //
+@media only screen and (max-width: 910px) {
+    .donation-section {
+        justify-content: center;
+        text-align: center;
+        .donation-content {
+            @include flex-center;
+            flex-direction: column;
+            padding: 0;
+            width: 70vw;
+        }
+    }
+}
+
+
+// footer styling //
+footer {
+    background: $blaa;
+    position: relative;
+    padding-top: 50px;
+    @include flex-center;
+    flex-direction: column;
+
+
+    .bar-wrapper {
+        @include flex-center;
+        gap: 18vw;
+        color: white;
+
+        ul {
+            padding: 0;
+
+            li {
+                list-style-type: none;
+                line-height: 40px;
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    transition: color 0.2s ease-in;
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+
+            .vejnavn-info {
+                padding-top: 15px;
+            }
+        }
+    }
+
+    .social-icons {
+        @include flex-center;
+        gap: 35px;
+        padding: 70px;
+
+        img {
+            height: 60px;
+        }
+    }
+
+    .copyright-line {
+        color: white;
+        font-size: 13px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 8px;
+    }
+}
+
+// Footer mobile styling //
+@media only screen and (max-width: 910px) {
+    footer {
+        .bar-wrapper {
+            flex-direction: column;
+            gap: 0;
+            text-align: center;
+        }
+
+        .copyright-line {
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        .logo img {
+            width: 250px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        .social-icons {
+            padding-top: 20px;
+            img {
+                height: 50px;
+            }
+        }
+    }
+}
