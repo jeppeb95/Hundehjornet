@@ -60,7 +60,7 @@
             <div class="hero-seperator"></div>
             <p>Dyk ned i verdenen af hunde og udforsk alt fra racer og træning til sundhed og pleje. 
                 Velkommen til din ultimative hunde-guide!</p>
-                <a href="racer.html" class="global-button">Udforsk racerne</a>
+                <a href="#" class="global-button">Udforsk racerne</a>
         </div>
             
         </div>
@@ -109,6 +109,7 @@
         <a href="#" class="global-button">Donér nu</a>
     </div>
     </section>
+</main>
 
 
     <footer>
@@ -170,8 +171,16 @@
                   <div class="copyright-line">Copyright © 2024 birkholmdigital. All rights reserved.</div>
     </footer>
 
+ <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        menuToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
 
-
-</main>
 </body>
 </html>

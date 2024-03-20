@@ -11,6 +11,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: $brodtekst;
+    overflow-x: hidden;
 }
 
 // Styling af header //
@@ -67,6 +68,11 @@ header {
     img {
         display: none;
     }
+   }
+
+   .social-nav {
+    display: flex;
+    gap: 10px;
    }
 }
 
@@ -132,6 +138,11 @@ header {
             a {
                 text-decoration: none;
                 color: $hvid;
+                transition: color ease-in 150ms;
+
+                &:hover {
+                    color: black;
+                }
             }
         }
     }
@@ -143,9 +154,11 @@ header {
 }
 
 .hamburger-menu {
-    z-index: 9999999;
+    z-index: 99999;
     position: fixed;
-    padding-left: 10px;
+    left: 15px;
+    display: none;
+    cursor: pointer;
 
     span {
         display: block;
@@ -174,6 +187,17 @@ header {
 #menu-toggle:checked + .hamburger-menu + .mobile-navbar {
     transform: translateX(0%);
 }
+
+#menu-toggle:checked {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 970px) {
+    .hamburger-menu {
+        display: block;
+    }
+}
+
 
 
 // Styling af hero //
@@ -434,6 +458,98 @@ header {
     }
 }
 
+//Hero section på undersider //
+.hero-sub-section {
+    height: 60vh;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        filter: brightness(40%);
+    }
+
+   .text-content {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 99;
+        text-align: center;
+    }
+}
+
+
+// Traenings indhold //
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    h1 {
+        color: #3498db;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .step {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-content {
+            flex: 1;
+            h2 {
+                color: #1b9d51;
+                font-size: 24px;
+                margin-top: 0;
+                margin-bottom: 10px;
+                text-align: left;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #555;
+            }
+        }
+
+        img {
+            max-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+//Traening mobil //
+@media only screen and (max-width: 610px) {
+    .container {
+        .step {
+            flex-direction: column;
+        }
+    }
+}
 
 // footer styling //
 footer {
@@ -492,6 +608,8 @@ footer {
         bottom: 8px;
     }
 }
+
+
 
 // Footer mobile styling //
 @media only screen and (max-width: 910px) {

@@ -20,6 +20,7 @@ h2 {
     font-size: 26px;
     text-align: center;
     font-weight: 500;
+    color: $hvid;
 }
 
 h3 {
@@ -44,5 +45,9 @@ p {
         font-size: 30px;
         text-align: center;
         padding: 0 10px;
+    }
+
+    h2 {
+        font-size: 20px;
     }
 }
