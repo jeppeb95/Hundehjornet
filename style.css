@@ -471,6 +471,7 @@ header .social-nav {
   color: #3498db;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 28px;
 }
 
 .steps {
@@ -528,6 +529,9 @@ header .social-nav {
 }
 .dog-care p {
   color: black;
+}
+.dog-care h2 {
+  font-size: 28px;
 }
 
 .dog-care .section-title {
