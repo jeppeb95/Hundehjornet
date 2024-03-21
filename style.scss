@@ -134,6 +134,7 @@ header {
             font-size: 28px;
             font-weight: 700;
             text-align: center;
+            
     
             a {
                 text-decoration: none;
@@ -475,7 +476,7 @@ header {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        z-index: 99;
+        z-index: 2;
         text-align: center;
     }
 }
@@ -550,6 +551,73 @@ header {
         }
     }
 }
+
+
+// Sundheds side //
+.dog-care {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  p {
+    color: black;
+  }
+}
+
+.dog-care .section-title {
+  text-align: center;
+  color: $blaa;
+  margin-bottom: 40px;
+}
+
+.dog-care .care-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 4px solid #3498db;
+  background-color: #fcfcfc;
+
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  h3 {
+    color: #1b9d51;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #d3d3d3;
+      line-height: 25px;
+
+      &:last-child {
+        border: none;
+      }
+
+      strong {
+        color: $blaa;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .dog-care {
+    padding: 40px;
+  }
+
+  .dog-care .care-section {
+    margin-bottom: 40px;
+  }
+}
+
+
 
 // footer styling //
 footer {

@@ -451,7 +451,7 @@ header .social-nav {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  z-index: 99;
+  z-index: 2;
   text-align: center;
 }
 
@@ -512,6 +512,60 @@ header .social-nav {
 @media only screen and (max-width: 610px) {
   .container .step {
     flex-direction: column;
+  }
+}
+.dog-care {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.dog-care p {
+  color: black;
+}
+
+.dog-care .section-title {
+  text-align: center;
+  color: #0C7DCF;
+  margin-bottom: 40px;
+}
+
+.dog-care .care-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  border-left: 4px solid #3498db;
+  background-color: #fcfcfc;
+}
+.dog-care .care-section:hover {
+  background-color: #f7f7f7;
+}
+.dog-care .care-section h3 {
+  color: #1b9d51;
+}
+.dog-care .care-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+.dog-care .care-section ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #d3d3d3;
+  line-height: 25px;
+}
+.dog-care .care-section ul li:last-child {
+  border: none;
+}
+.dog-care .care-section ul li strong {
+  color: #0C7DCF;
+}
+
+@media (min-width: 768px) {
+  .dog-care {
+    padding: 40px;
+  }
+  .dog-care .care-section {
+    margin-bottom: 40px;
   }
 }
 footer {
